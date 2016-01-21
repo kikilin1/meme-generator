@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Meme Generator</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+        
+        <style>
+            
+            
+        
+        
+        
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col s4 m4"><h3>Top line:</h3>
+                    <input type="text" id="input1">
+                    <h3>Bottom line:</h3>
+                    <input type="text" id="input2">
+                </div>
+                <div class="col s6 m8">
+                <canvas id="canvas" width="560" height="438"></canvas>
+                
+                </div>
+            
+            
+            
+            
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        <script>
+            var ctx= document.getElementById("canvas").getContext("2d");
+           ctx.font="36pt Impact";
+            ctx.fillStyle="#ffffff";
+            ctx.textAlign="center";
+            
+        
+            var img = new Image();
+            img.src="meme_img/cat1.jpg";
+            img.onload=function(){
+                ctx.drawImage(img,0,0);
+            
+            };
+            
+            document.getElementById("input1").onkeypress=redraw;
+            document.getElementById("input2").onkeypress=redraw;
+            
+            
+        function redraw(){
+            ctx.drawImage(img,0,0,560,438);
+            var tx1=document.getElementById("input1").value;
+            ctx.fillText(tx1,280,40);
+            
+            var tx2=document.getElementById("input2").value;
+            ctx.fillText(tx2,280,350);
+        
+        }
+        
+        
+        
+        
+        
+        </script>
+    </body>
+
+</html>
